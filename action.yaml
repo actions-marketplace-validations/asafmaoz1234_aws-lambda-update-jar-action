@@ -1,5 +1,6 @@
 name: Update a java aws lambda on merged PR
-
+description: 'Package code and Run UpdateFunctionCode'
+author: 'asafmaoz1234'
 on:
   pull_request:
     branches:
