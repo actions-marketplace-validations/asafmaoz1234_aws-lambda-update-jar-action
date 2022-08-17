@@ -1,30 +1,19 @@
-name: Update a java aws lambda on merged PR
-description: 'Package code and Run UpdateFunctionCode'
-author: 'asafmaoz1234'
-on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - closed
-
-jobs:
-  if_merged:
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 8
-        uses: actions/setup-java@v3
-        with:
-          java-version: '8'
-          distribution: 'corretto'
-          cache: maven
-      - name: Package to jar
-        run: mvn package
-      - name: Deploy it
-        run: aws lambda update-function-code --function-name weather-java --zip-file fileb://target/lambda-beach-time-1.0-SNAPSHOT.jar
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+name: 'AWS Lambda Update Jar/zip'
+description: 'Update a specified lambda with your packaged project jar.'
+author: 'Asaf Maoz, asafmaoz1234 <asaf@asafmaoz.com>'
+inputs:
+  lambda-name:
+    description: 'The name of the aws lambda to update'
+    required: true
+  snapshot-name:
+    description: 'The name of the jar (artifactId-version.jar)'
+    required: true
+  AWS_REGION:
+    description: 'Optional if not specified fallbacks to environment variable'
+    required: false
+  AWS_ACCESS_KEY_ID:
+    description: 'Optional if not specified fallbacks to environment variable'
+    required: false
+  AWS_SECRET_ACCESS_KEY:
+    description: 'Optional if not specified fallbacks to environment variable'
+    required: false
