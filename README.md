@@ -9,25 +9,17 @@ This action packages your project jar and directly updates your aws lambda.
 
 ## Usage
 
-### minimum
-
-```yaml
-uses: asafmaoz1234/aws-lambda-update-jar-action@v1
-with:
-  lambda-name: 'lambda-name-to-update'
-  snapshot-name: 'projectName-artifactId.jar'
-```
-
 ### complete
 
 ```yaml
-uses: asafmaoz1234/aws-lambda-update-jar-action@v1
-with:
-  lambda-name: 'lambda-name-to-update'
-  snapshot-name: 'projectName-artifactId.jar'
-  AWS_REGION: ${{ secrets.AWS_REGION }}
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+- name: 'AWS Lambda Update Jar/zip'
+  uses: asafmaoz1234/aws-lambda-update-jar-action@1.1
+  with:
+    lambda-name: 'lambda-name-to-update'
+    snapshot-name: 'projectName-artifactId.jar'
+    AWS_REGION: ${{ secrets.AWS_REGION }}
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 ```
 
 ## AWS Permissions needed
@@ -47,15 +39,15 @@ with:
 
 ### `AWS_REGION`
 
-_Optional_, if not specified fallbacks to environment variable.
+**Required** 
 
 ### `AWS_ACCESS_KEY_ID`
 
-_Optional_, if not specified fallbacks to environment variable.
+**Required**
 
 ### `AWS_SECRET_ACCESS_KEY`
 
-_Optional_, if not specified fallbacks to environment variable.
+**Required**
 
 ## Example
 
@@ -81,7 +73,6 @@ jobs:
         with:
           lambda-name: my-lambda-name
           snapshot-name: project-name-1.0-SNAPSHOT.jar
-        env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
