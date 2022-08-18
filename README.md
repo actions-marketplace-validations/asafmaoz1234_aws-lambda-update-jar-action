@@ -76,15 +76,6 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 8
-        uses: actions/setup-java@v3
-        with:
-          java-version: '8'
-          distribution: 'corretto'
-          cache: maven
-      - name: Package to jar
-        run: mvn package
       - name: Update lambda
         uses: asafmaoz1234/aws-lambda-update-jar-action@v1
         with:
