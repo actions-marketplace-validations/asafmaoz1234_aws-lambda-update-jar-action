@@ -6,9 +6,6 @@ const AWS = require('aws-sdk');
 try {
   const lambdaFunctionName = core.getInput('lambda-name');
   const snapShotName = core.getInput('snapshot-name');
-  const AWS_ACCESS_KEY_ID = core.getInput('AWS_ACCESS_KEY_ID');
-  const AWS_SECRET_ACCESS_KEY = core.getInput('AWS_SECRET_ACCESS_KEY');
-  const AWS_REGION = core.getInput('AWS_REGION');
 
   console.log(`Updating Function Name ${lambdaFunctionName} with ${snapShotName}!`);
 
@@ -17,9 +14,9 @@ try {
 
   const lambda = new AWS.Lambda({
       apiVersion: '2015-03-31',
-      region: AWS_REGION,
-      secretAccessKey: AWS_ACCESS_KEY_ID,
-      accessKeyId: AWS_SECRET_ACCESS_KEY,
+      region: process.env.AWS_REGION,
+      secretAccessKey: process.env.AWS_ACCESS_KEY_ID,
+      accessKeyId: process.env.AWS_SECRET_ACCESS_KEY,
       maxRetries: 3,
       sslEnabled: true,
       logger: console,
