@@ -2,19 +2,29 @@
   "name": "aws-lambda-update-jar-action",
   "version": "1.0.0",
   "description": "[![GitHub](https://img.shields.io/github/license/asafmaoz1234/aws-lambda-update-jar-action)](https://opensource.org/licenses/MIT) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/asafmaoz1234/aws-lambda-update-jar-action)](https://github.com/asafmaoz1234/aws-lambda-update-jar-action/releases) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/asafmaoz1234/aws-lambda-update-jar-action/v1)](https://github.com/asafmaoz1234/aws-lambda-update-jar-action/actions)",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/asafmaoz1234/aws-lambda-update-jar-action.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/asafmaoz1234/aws-lambda-update-jar-action/issues"
+  },
+  "keywords": [
+    "actions",
+    "aws",
+    "lambda"
+  ],
+  "author": "asafmaoz1234",
+  "dependencies": {
+    "@actions/core": "^1.9.1",
+    "@actions/github": "^5.0.3",
+    "aws-sdk": "^2.1198.0"
   },
   "homepage": "https://github.com/asafmaoz1234/aws-lambda-update-jar-action#readme"
 }
