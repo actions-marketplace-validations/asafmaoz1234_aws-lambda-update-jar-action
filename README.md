@@ -1,11 +1,13 @@
-# AWS Lambda Update Jar/zip
+# AWS Lambda Update Jar/zip 
+### (no hidden logic)
 
 [![GitHub](https://img.shields.io/github/license/asafmaoz1234/aws-lambda-update-jar-action)](https://opensource.org/licenses/MIT)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/asafmaoz1234/aws-lambda-update-jar-action)](https://github.com/asafmaoz1234/aws-lambda-update-jar-action/releases)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/asafmaoz1234/aws-lambda-update-jar-action/v1)](https://github.com/asafmaoz1234/aws-lambda-update-jar-action/actions)
 
 This action updates a given lambda that runs java projects.<br>
-This action packages your project jar and directly updates your aws lambda.
+This action packages your project jar and directly updates your aws lambda.<br>
+* The code in dist/index.js is clear, you can see exatcly whats going on with your aws credentials.
 
 ## Usage
 
