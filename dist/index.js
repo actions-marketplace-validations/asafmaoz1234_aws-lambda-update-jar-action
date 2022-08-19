@@ -15,8 +15,8 @@ try {
   const lambda = new AWS.Lambda({
       apiVersion: '2015-03-31',
       region: process.env.AWS_REGION,
-      secretAccessKey: process.env.AWS_ACCESS_KEY_ID,
-      accessKeyId: process.env.AWS_SECRET_ACCESS_KEY,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
       maxRetries: 3,
       sslEnabled: true,
       logger: console,
